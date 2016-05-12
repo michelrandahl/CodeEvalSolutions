@@ -1,0 +1,1 @@
+idris --target C test.idr -S -o test.c

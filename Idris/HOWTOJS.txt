@@ -1,0 +1,6 @@
+read cmd args with
+process.argv[2]
+
+ * javascript generated with Idris builtin codegen and google closure compiler
+ * $ idris OddNumbers.idr --codegen Node -o OddNumbers.js
+ * $ closure-compiler OddNumbers.js --compilation_level=ADVANCED_OPTIMIZATIONS > OddNumbers2.js
