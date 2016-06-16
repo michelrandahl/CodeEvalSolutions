@@ -1,6 +1,5 @@
-﻿open System
+open System
 open System.IO
-
 
 let rec primenumbers n = seq {
     match n with
@@ -19,20 +18,20 @@ let rec primenumbers n = seq {
     yield! primenumbers (n+1)
 }
 
-let n = 10
-primenumbers 1
-|> Seq.takeWhile (fun p -> p <= n)
-|> Seq.map string
-|> String.concat ","
+let countPrimes lower upper =
+    primenumbers lower
+    |> Seq.takeWhile (fun p -> p <= upper)
+    |> Seq.length
+
 
 [<EntryPoint>]
 let main(args) =    
     let testCases = File.ReadLines(args.[0])
     for test in testCases do
-        let n = Int32.Parse test
-        primenumbers 1
-        |> Seq.takeWhile (fun p -> p < n)
-        |> Seq.map string
-        |> String.concat ","
-        |> printfn "%s"
+        match test.Split ',' with
+        | [|l;u|] ->
+            (Int32.Parse l, Int32.Parse u)
+            ||> countPrimes
+            |> printfn "%d"
+        | _ -> printfn "weird input"
     0

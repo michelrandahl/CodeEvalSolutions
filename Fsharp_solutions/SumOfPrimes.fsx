@@ -9,8 +9,8 @@ let rec primenumbers n = seq {
     | 0|1 -> ()
     | 2|3 -> yield n
     | n when n % 2 = 0 || n % 3 = 0 -> ()
-    | n -> 
-        let rec primetest i = 
+    | n ->
+        let rec primetest i =
             if i*i <= n then
                 if n % i = 0 || n % (i+2) = 0 then
                     false

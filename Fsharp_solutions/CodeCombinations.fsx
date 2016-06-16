@@ -22,7 +22,7 @@ let code = "code" |> Set.ofSeq
 
 
 [<EntryPoint>]
-let main(args) =    
+let main(args) =
     let testCases = File.ReadLines(args.[0])
     for test in testCases do
         test.Split('|')
